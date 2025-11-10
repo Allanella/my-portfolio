@@ -10,12 +10,12 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="Baliddawa Allan | Full-Stack Developer">
   <meta property="og:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
-  <meta property="og:image" content="/images/code.jpeg">
+  <meta property="og:image" content="./images/code.jpeg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Baliddawa Allan | Full-Stack Developer">
   <meta name="twitter:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
-  <meta name="twitter:image" content="/images/code.jpeg">
+  <meta name="twitter:image" content="./images/code.jpeg">
 
   <title>Baliddawa Allan | Full-Stack Developer</title>
 
@@ -50,7 +50,7 @@
 
     body.dark-mode { --card-bg: rgba(30,30,30,0.7); --text-color: #eee; }
     body.dark-mode .skill-tag, body.dark-mode .project-link { background: linear-gradient(135deg, #434343 0%, #000 100%); }
-    body.dark-mode .nav-link, body.dark-mode .project-title { color: #fff; } /* Brighter text */
+    body.dark-mode .nav-link, body.dark-mode .project-title { color: #fff; }
 
     .container { 
       max-width: 1200px; 
@@ -116,7 +116,6 @@
       font-size: 48px;
       color: white;
       font-weight: bold;
-      display: none;
     }
 
     h1 { font-size: 42px; margin-bottom: 12px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
@@ -300,12 +299,19 @@
       color: white;
       font-weight: bold;
       font-size: 18px;
+      position: relative;
     }
 
     .project-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+    }
+
+    .project-image-placeholder {
+      display: none;
+      font-size: 64px;
     }
 
     .project-content {
@@ -450,7 +456,6 @@
 </head>
 
 <body>
-  <!-- Dark Mode Toggle -->
   <div class="container">
     <div class="nav">
       <div class="nav-logo">
@@ -469,8 +474,8 @@
     <section id="about">
       <div class="profile-section">
         <div class="profile-image">
-          <img src="/images/code.jpeg" alt="Baliddawa Allan" onerror="this.style.display='none'; document.querySelector('.profile-image-text').style.display='flex'">
-          <div class="profile-image-text">BA</div>
+          <img src="./images/code.jpeg" alt="Baliddawa Allan" onerror="this.style.display='none'; this.parentElement.querySelector('.profile-image-text').style.display='flex'">
+          <div class="profile-image-text" style="display: none;">BA</div>
         </div>
         <h1>Baliddawa Allan</h1>
         <p class="tagline">💻 Full-Stack Software Engineer</p>
@@ -482,7 +487,7 @@
         <p>Full-Stack Developer specializing in <strong>Java/Spring Boot</strong> and <strong>React/Next.js</strong>. I build production-ready apps that solve real problems, like streamlining student management for schools. Fun fact: I'm a coffee-fueled coder who once built a social app in a weekend hackathon! ☕🚀</p>
         
         <!-- Download CV -->
-        <a href="/files/Baliddawa_Allan_CV.pdf" download style="display:inline-block; background: var(--secondary-gradient); color:#fff; padding:12px 20px; border-radius:25px; text-decoration:none; font-weight:600; margin-bottom:15px;">⬇️ Download CV</a>
+        <a href="./files/Baliddawa_Allan_CV.pdf" download style="display:inline-block; background: var(--secondary-gradient); color:#fff; padding:12px 20px; border-radius:25px; text-decoration:none; font-weight:600; margin-bottom:15px;">⬇️ Download CV</a>
 
         <!-- Skills -->
         <div class="skills">
@@ -568,7 +573,8 @@
         <!-- Allanova Social App -->
         <div class="project-card" data-category="fullstack">
           <div class="project-image">
-            <img src="/images/allanova-screenshot.jpeg" alt="Screenshot of Allanova Social App interface" loading="lazy">
+            <img src="./images/code.jpeg" alt="Allanova Social App" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">💬</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">Allanova Social App</h3>
@@ -590,7 +596,8 @@
         <!-- Iona Institute of Technology Website -->
         <div class="project-card" data-category="frontend">
           <div class="project-image">
-            <img src="/images/ionaShot.PNG" alt="Screenshot of Iona Institute of Technology website" loading="lazy">
+            <img src="./images/ionaShot.PNG" alt="Iona Institute" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">🎓</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">Iona Institute of Technology</h3>
@@ -609,7 +616,8 @@
         <!-- Student Management System -->
         <div class="project-card" data-category="fullstack">
           <div class="project-image">
-            <img src="/images/edup.PNG" alt="Screenshot of Student Management System" loading="lazy">
+            <img src="./images/edup.PNG" alt="Student Management System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">📚</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">Student Management System</h3>
@@ -629,7 +637,8 @@
         <!-- Acculate Construction Website -->
         <div class="project-card" data-category="frontend">
           <div class="project-image">
-            <img src="/images/image.png" alt="Screenshot of Acculate Construction Company website" loading="lazy">
+            <img src="./images/image.png" alt="Acculate Construction" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">🏗️</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">Acculate Construction Company</h3>
@@ -648,7 +657,8 @@
         <!-- OpenELIS Global Contribution -->
         <div class="project-card" data-category="opensource">
           <div class="project-image">
-            <img src="/images/openelis-screenshot.png" alt="Screenshot of OpenELIS Global" loading="lazy">
+            <img src="./images/code.jpeg" alt="OpenELIS Global" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">🔬</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">OpenELIS Global</h3>
@@ -667,7 +677,8 @@
         <!-- SDA Kanyanya Website -->
         <div class="project-card" data-category="frontend">
           <div class="project-image">
-            <img src="/images/KnnShot.PNG" alt="Screenshot of SDA Kanyanya Website" loading="lazy">
+            <img src="./images/KnnShot.PNG" alt="SDA Kanyanya" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="project-image-placeholder">⛪</div>
           </div>
           <div class="project-content">
             <h3 class="project-title">SDA Kanyanya Website</h3>
