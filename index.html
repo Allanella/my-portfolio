@@ -1,785 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Baliddawa Allan - Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js. Based in Kampala, Uganda.">
-  <meta name="keywords" content="Full-Stack Developer, Java, Spring Boot, React, Next.js, Software Engineer, Uganda">
-  <meta name="author" content="Baliddawa Allan">
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="Baliddawa Allan | Full-Stack Developer">
-  <meta property="og:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
-  <meta property="og:image" content="./images/code.jpeg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Baliddawa Allan | Full-Stack Developer">
-  <meta name="twitter:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
-  <meta name="twitter:image" content="./images/code.jpeg">
-
-  <title>Baliddawa Allan | Full-Stack Developer</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --card-bg: rgba(255, 255, 255, 0.15);
-      --card-bg-dark: rgba(20,20,20,0.8);
-      --text-color: #fff;
-      --text-color-dark: #ddd;
-      --transition-speed: 0.3s;
-      --section-spacing: 60px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--primary-gradient);
-      min-height: 100vh;
-      color: var(--text-color);
-      transition: background 0.5s, color 0.5s;
-    }
-
-    body.dark-mode {
-      background: #121212;
-      color: var(--text-color-dark);
-    }
-
-    body.dark-mode { --card-bg: rgba(30,30,30,0.7); --text-color: #eee; }
-    body.dark-mode .skill-tag, body.dark-mode .project-link { background: linear-gradient(135deg, #434343 0%, #000 100%); }
-    body.dark-mode .nav-link, body.dark-mode .project-title { color: #fff; }
-
-    .container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 40px 20px; 
-    }
-
-    /* Navigation */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-
-    .nav-link {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all var(--transition-speed);
-      padding: 8px 16px;
-      border-radius: 20px;
-    }
-
-    .nav-link:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    /* Hero / Profile Section */
-    .profile-section {
-      text-align: center;
-      margin-bottom: var(--section-spacing);
-      animation: fadeIn 1s ease-in;
-    }
-
-    .profile-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin: 0 auto 25px;
-      border: 4px solid white;
-      overflow: hidden;
-      background: var(--primary-gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      animation: pulse 2s infinite;
-    }
-
-    .profile-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-image-text {
-      font-size: 48px;
-      color: white;
-      font-weight: bold;
-    }
-
-    h1 { font-size: 42px; margin-bottom: 12px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
-    .tagline { font-size: 20px; margin-bottom: 8px; font-weight: 500; }
-    .location { font-size: 16px; margin-bottom: 25px; }
-
-    /* Dark mode toggle */
-    .dark-toggle {
-      background: white;
-      color: #333;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: all var(--transition-speed);
-    }
-    .dark-toggle:hover { transform: scale(1.1); }
-
-    /* Section Headers */
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .section-header h2 {
-      font-size: 32px;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
-
-    .section-header h2:after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background: var(--secondary-gradient);
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    /* Bio Card */
-    .bio {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 20px;
-      margin-bottom: var(--section-spacing);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      animation: slideUp 1s ease-out;
-    }
-
-    .bio p { line-height: 1.6; margin-bottom: 15px; }
-
-    /* Skills */
-    .skills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 15px; }
-    .skill-tag {
-      background: var(--secondary-gradient);
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: transform var(--transition-speed);
-    }
-    .skill-tag:hover { transform: scale(1.05); }
-
-    /* Tech stack progress bars */
-    .tech-stack { margin-top: 20px; }
-    .tech-item { margin-bottom: 15px; }
-    .tech-item span { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; }
-    .tech-bar {
-      height: 10px;
-      border-radius: 5px;
-      background: rgba(255,255,255,0.2);
-      overflow: hidden;
-    }
-    .tech-fill {
-      height: 100%;
-      background: var(--secondary-gradient);
-      border-radius: 5px;
-      width: 0;
-      animation: fillBar 1.2s forwards;
-    }
-
-    /* Education Section */
-    .education-section {
-      margin-bottom: var(--section-spacing);
-    }
-
-    .education-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      animation: slideUp 1s ease-out;
-    }
-
-    .education-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .education-degree {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .education-Date {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    .education-institution {
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
-
-    /* Projects Section */
-    .projects-section {
-      margin-bottom: var(--section-spacing);
-    }
-
-    .project-filters {
-      display: flex;
-      justify-content: center solen;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .filter-btn {
-      background: var(--card-bg);
-      color: var(--text-color);
-      border: none;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all var(--transition-speed);
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--secondary-gradient);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 25px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transition: transform var(--transition-speed);
-      animation: slideUp 1s ease-out;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-    }
-
-    .project-image {
-      height: 200px;
-      background: var(--secondary-gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      position: relative;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .project-image-placeholder {
-      display: none;
-      font-size: 64px;
-    }
-
-    .project-content {
-      padding: 20px;
-    }
-
-    .project-title {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .project-description {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      opacity: 0.9;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    .tech-badge {
-      background: rgba(255,255,255,0.2);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 12px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .project-link {
-      background: var(--secondary-gradient);
-      color: white;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all var(--transition-speed);
-    }
-
-    .project-link:hover {
-      transform: scale(1.05);
-    }
-
-    /* Links / Contact Section */
-    .links-section { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 15px; 
-      margin-bottom: var(--section-spacing);
-    }
-
-    .link-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(8px);
-      border-radius: 15px;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all var(--transition-speed);
-      cursor: pointer;
-      animation: slideUp 1s ease-out;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
-    .link-card:hover { transform: translateY(-3px) scale(1.02); }
-
-    .link-content { display: flex; align-items: center; gap: 15px; }
-    .link-icon svg { width: 24px; height: 24px; }
-    .link-text { display: flex; flex-direction: column; }
-    .link-title { font-weight: 600; font-size: 16px; }
-    .link-description { font-size: 12px; opacity: 0.8; margin-top: 2px; }
-
-    .arrow { font-size: 20px; opacity: 0.6; }
-
-    /* Social links */
-    .social-links { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
-    .social-link {
-      background: var(--card-bg);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all var(--transition-speed);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .social-link:hover { transform: scale(1.1); }
-
-    /* Footer */
-    .footer { text-align: center; margin-top: 40px; font-size: 14px; line-height: 1.8; }
-    .quote { font-style: italic; margin-bottom: 15px; }
-
-    /* Animations */
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes slideUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes fillBar { from {width:0;} to {width: var(--fill-width);} }
-    @keyframes pulse { 0% { border-width: 4px; } 50% { border-width: 6px; } 100% { border-width: 4px; } }
-
-    /* Responsive */
-    @media (max-width: 768px){
-      .nav {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      h1 { font-size: 32px; }
-      .tagline { font-size: 18px; }
-      .container { padding: 20px 15px; }
-      
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .education-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .projects-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Baliddawa Allan - Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js. Based in Kampala, Uganda.">
+    <meta name="keywords" content="Full-Stack Developer, Java, Spring Boot, React, Next.js, Software Engineer, Uganda">
+    <meta name="author" content="Baliddawa Allan">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Baliddawa Allan | Full-Stack Developer">
+    <meta property="og:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
+    <meta property="og:image" content="/images/code.jpeg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Baliddawa Allan | Full-Stack Developer">
+    <meta name="twitter:description" content="Full-Stack Software Engineer specializing in Java/Spring Boot and React/Next.js">
+    <meta name="twitter:image" content="/images/code.jpeg">
+    <title>Baliddawa Allan | Full-Stack Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS remains exactly the same */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --card-bg: rgba(255, 255, 255, 0.15);
+            --card-bg-dark: rgba(20,20,20,0.8);
+            --text-color: #fff;
+            --text-color-dark: #ddd;
+            --transition-speed: 0.3s;
+            --section-spacing: 60px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            color: var(--text-color);
+            transition: background 0.5s, color 0.5s;
+        }
+        body.dark-mode {
+            background: #121212;
+            color: var(--text-color-dark);
+        }
+        body.dark-mode {
+            --card-bg: rgba(30,30,30,0.7);
+            --text-color: #eee;
+        }
+        body.dark-mode .skill-tag, body.dark-mode .project-link {
+            background: linear-gradient(135deg, #434343 0%, #000 100%);
+        }
+        body.dark-mode .nav-link, body.dark-mode .project-title {
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        /* Hero / Profile Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: var(--section-spacing);
+            animation: fadeIn 1s ease-in;
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 4px solid white;
+            overflow: hidden;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-image-text {
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            display: none;
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        .tagline {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .location {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        /* Dark mode toggle */
+        .dark-toggle {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all var(--transition-speed);
+        }
+        .dark-toggle:hover {
+            transform: scale(1.1);
+        }
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-header h2 {
+            font-size: 32px;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-gradient);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        /* Bio Card */
+        .bio {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: var(--section-spacing);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: slideUp 1s ease-out;
+        }
+        .bio p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .skill-tag {
+            background: var(--secondary-gradient);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: transform var(--transition-speed);
+        }
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        /* Tech stack progress bars */
+        .tech-stack {
+            margin-top: 20px;
+        }
+        .tech-item {
+            margin-bottom: 15px;
+        }
+        .tech-item span {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .tech-bar {
+            height: 10px;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.2);
+            overflow: hidden;
+        }
+        .tech-fill {
+            height: 100%;
+            background: var(--secondary-gradient);
+            border-radius: 5px;
+            width: 0;
+            animation: fillBar 1.2s forwards;
+        }
+        /* Education Section */
+        .education-section {
+            margin-bottom: var(--section-spacing);
+        }
+        .education-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: slideUp 1s ease-out;
+        }
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .education-degree {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .education-date {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .education-institution {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        /* Projects Section */
+        .projects-section {
+            margin-bottom: var(--section-spacing);
+        }
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary-gradient);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform var(--transition-speed);
+            animation: slideUp 1s ease-out;
+        }
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        .project-image {
+            height: 200px;
+            background: var(--secondary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-content {
+            padding: 20px;
+        }
+        .project-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .project-description {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .tech-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+        .project-link {
+            background: var(--secondary-gradient);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+        }
+        .project-link:hover {
+            transform: scale(1.05);
+        }
+        /* Links / Contact Section */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: var(--section-spacing);
+        }
+        .link-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            animation: slideUp 1s ease-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .link-card:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .link-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .link-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .link-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .link-description {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+        .arrow {
+            font-size: 20px;
+            opacity: 0.6;
+        }
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            background: var(--card-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .quote {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity:0;}
+            to {opacity:1;}
+        }
+        @keyframes slideUp {
+            from {opacity:0; transform:translateY(20px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+        @keyframes fillBar {
+            from {width:0;}
+            to {width: var(--fill-width);}
+        }
+        @keyframes pulse {
+            0% { border-width: 4px; }
+            50% { border-width: 6px; }
+            100% { border-width: 4px; }
+        }
+        /* Responsive */
+        @media (max-width: 768px){
+            .nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .tagline {
+                font-size: 18px;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="nav">
-      <div class="nav-logo">
-        <h2 style="color: white;">Baliddawa Allan</h2>
-      </div>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙 Dark Mode</button>
-      </div>
+    <!-- Dark Mode Toggle -->
+    <div class="container">
+        <div class="nav">
+            <div class="nav-logo">
+                <h2 style="color: white;">Baliddawa Allan</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙 Dark Mode</button>
+            </div>
+        </div>
+        <!-- Profile Section -->
+        <section id="about">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="/images/code.jpeg" alt="Baliddawa Allan" onerror="console.log('Profile image failed to load locally'); this.style.display='none'; document.querySelector('.profile-image-text').style.display='flex'">
+                    <div class="profile-image-text">BA</div>
+                </div>
+                <h1>Baliddawa Allan</h1>
+                <p class="tagline">💻 Full-Stack Software Engineer</p>
+                <p class="location">📍 Kampala, Uganda | 🌍 Open to Remote & Relocation</p>
+            </div>
+            <!-- Bio Card -->
+            <div class="bio">
+                <p>Full-Stack Developer specializing in <strong>Java/Spring Boot</strong> and <strong>React/Next.js</strong>. I build production-ready apps that solve real problems, like streamlining student management for schools. Fun fact: I'm a coffee-fueled coder who once built a social app in a weekend hackathon! ☕🚀</p>
+                <!-- Download CV -->
+                <a href="/files/Baliddawa_Allan_CV.pdf" download style="display:inline-block; background: var(--secondary-gradient); color:#fff; padding:12px 20px; border-radius:25px; text-decoration:none; font-weight:600; margin-bottom:15px;">⬇️ Download CV</a>
+                <!-- Skills -->
+                <div class="skills">
+                    <span class="skill-tag">Java & Spring Boot</span>
+                    <span class="skill-tag">React & Next.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+                <!-- Tech Stack -->
+                <div class="tech-stack">
+                    <div class="tech-item"><span>Java & Spring Boot</span>
+                        <div class="tech-bar"><div class="tech-fill" style="--fill-width:90%; width:90%;"></div></div>
+                    </div>
+                    <div class="tech-item"><span>React & Next.js</span>
+                        <div class="tech-bar"><div class="tech-fill" style="--fill-width:85%; width:85%;"></div></div>
+                    </div>
+                    <div class="tech-item"><span>Node.js</span>
+                        <div class="tech-bar"><div class="tech-fill" style="--fill-width:80%; width:80%;"></div></div>
+                    </div>
+                    <div class="tech-item"><span>PostgreSQL</span>
+                        <div class="tech-bar"><div class="tech-fill" style="--fill-width:75%; width:75%;"></div></div>
+                    </div>
+                    <div class="tech-item"><span>Docker</span>
+                        <div class="tech-bar"><div class="tech-fill" style="--fill-width:70%; width:70%;"></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Currently Working On -->
+            <div class="bio">
+                <h2 style="color:white; margin-bottom:12px;">🚀 Currently Working On</h2>
+                <p>Developing a <strong>Next.js SaaS platform</strong> for local businesses integrating payment and analytics, along with enhancements to my Student Management System project.</p>
+            </div>
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-degree">Associate's Degree in Computer Science</div>
+                    <div class="education-date">Expected Graduation: January 2026</div>
+                </div>
+                <div class="education-institution">University of the People</div>
+                <p>Currently completing my degree with a focus on software engineering principles, algorithms, and data structures.</p>
+            </div>
+        </section>
+        <!-- Experience & Testimonials Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-header">
+                <h2>Experience & Testimonials</h2>
+            </div>
+            <div class="education-card">
+                <p>"Allan's work on our website was transformative—fast, secure, and user-friendly." - Mr. Ntambi Moses</p>
+            </div>
+        </section>
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <h2>Projects</h2>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="opensource">Open Source</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Allanova Social App -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="/images/allanova-screenshot.jpeg" alt="Screenshot of Allanova Social App interface" loading="lazy" onerror="console.log('Allanova image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Allanova Social App</h3>
+                        <p class="project-description">A modern full-stack social media app enabling real-time chats and secure user authentication. Solved scalability issues for 1,000+ users by implementing Socket.io. Built from ideation to deployment in 3 months, resulting in a responsive platform deployed on Vercel.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Socket.io</span>
+                            <span class="tech-badge">JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Allanella/allanova-social-app" class="project-link" target="_blank">GitHub</a>
+                            <a href="https://allanova-demo.vercel.app" class="project-link" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iona Institute of Technology Website -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="/images/ionashot.png" alt="Screenshot of Iona Institute of Technology website" loading="lazy" onerror="console.log('Iona image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Iona Institute of Technology</h3>
+                        <p class="project-description">Official website built with React, Vite, and Tailwind CSS featuring modern UI and smooth scrolling navigation. Addressed the need for an engaging educational platform, improving user navigation and load times by 40% through optimized components.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Vite</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Allanella/iona-tech-website" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Student Management System -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="/images/edup.png" alt="Screenshot of Student Management System" loading="lazy" onerror="console.log('Student Management image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Student Management System</h3>
+                        <p class="project-description">Full-stack application for managing student information with secure authentication and CRUD operations. Tackled administrative inefficiencies in educational institutions, reducing data entry time by 50% via automated processes and database optimizations.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Acculate Construction Website -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="/images/image.png" alt="Screenshot of Acculate Construction Company website" loading="lazy" onerror="console.log('Acculate image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Acculate Construction Company</h3>
+                        <p class="project-description">Professional website for a construction company built with Next.js and modern UI components. Focused on showcasing projects effectively, leading to increased client inquiries through intuitive galleries and contact forms.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- OpenELIS Global Contribution -->
+                <div class="project-card" data-category="opensource">
+                    <div class="project-image">
+                        <img src="/images/openelis-screenshot.png" alt="Screenshot of OpenELIS Global" loading="lazy" onerror="console.log('OpenELIS image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">OpenELIS Global</h3>
+                        <p class="project-description">Open-source laboratory information system. Contributed to development and improvements, enhancing data accuracy and workflow efficiency for healthcare labs worldwide.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Open Source</span>
+                            <span class="tech-badge">Laboratory Systems</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OpenELIS/OpenELIS-Global-2" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SDA Kanyanya Website -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="/images/knnshot.png" alt="Screenshot of SDA Kanyanya Website" loading="lazy" onerror="console.log('SDA Kanyanya image failed to load locally')">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SDA Kanyanya Website</h3>
+                        <p class="project-description">Church website with worship schedules, ministries, sermons, events, and community resources. Improved community engagement by integrating event calendars and media uploads, boosting visitor interaction.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+            </div>
+            <!-- Links & Contact -->
+            <div class="links-section">
+                <div class="link-card" onclick="window.open('https://github.com/Allanella','_blank')">
+                    <div class="link-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577 0-.285-.012-1.234-.018-2.236-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.304.762-1.604-2.665-.303-5.466-1.332-5.466-5.932 0-1.31.469-2.382 1.236-3.222-.124-.303-.536-1.523.118-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.02.005 2.046.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.912 1.236 3.222 0 4.61-2.803 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.594-.014 2.879-.014 3.27 0 .32.19.694.8.576C20.565 21.796 24 17.3 24 12c0-6.628-5.372-12-12-12z"/></svg>
+                        <div class="link-text">
+                            <span class="link-title">GitHub Portfolio</span>
+                            <span class="link-description">Explore my code and projects</span>
+                        </div>
+                    </div>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="link-card" onclick="window.open('https://www.linkedin.com/in/allan-baliddawa-828771286/','_blank')">
+                    <div class="link-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M22.23 0H1.77C.792 0 0 .77 0 1.72v20.56C0 23.23.792 24 1.77 24h20.46C23.208 24 24 23.23 24 22.28V1.72C24 .77 23.208 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.52C4.12 7.52 3.15 6.54 3.15 5.32c0-1.22.97-2.2 2.19-2.2 1.21 0 2.19.98 2.19 2.2 0 1.22-.98 2.2-2.19 2.2zM20.45 20.45h-3.56v-5.56c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.93v5.67H9.38V9h3.42v1.56h.05c.48-.91 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.49v6.78z"/></svg>
+                        <div class="link-text">
+                            <span class="link-title">LinkedIn Profile</span>
+                            <span class="link-description">Let's connect professionally</span>
+                        </div>
+                    </div>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="link-card" onclick="window.location.href='mailto:allanbaliddawa@gmail.com'">
+                    <div class="link-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 13.065l-10-6.065v12h20v-12l-10 6.065zm0-2.13l10-6.935h-20l10 6.935z"/></svg>
+                        <div class="link-text">
+                            <span class="link-title">Email Me</span>
+                            <span class="link-description">allanbaliddawa@gmail.com</span>
+                        </div>
+                    </div>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/Allanella" class="social-link" target="_blank" rel="noopener" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577 0-.285-.012-1.234-.018-2.236-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.304.762-1.604-2.665-.303-5.466-1.332-5.466-5.932 0-1.31.469-2.382 1.236-3.222-.124-.303-.536-1.523.118-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.02.005 2.046.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.912 1.236 3.222 0 4.61-2.803 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.594-.014 2.879-.014 3.27 0 .32.19.694.8.576C20.565 21.796 24 17.3 24 12c0-6.628-5.372-12-12-12z"/></svg>
+                </a>
+                <a href="mailto:allanbaliddawa@gmail.com" class="social-link" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 13.065l-10-6.065v12h20v-12l-10 6.065zm0-2.13l10-6.935h-20l10 6.935z"/></svg>
+                </a>
+                <a href="https://my-portfolio-flame-tau-63.vercel.app/" class="social-link" target="_blank" title="Portfolio">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.18 5 4.05 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </a>
+            </div>
+        </section>
+        <!-- Footer -->
+        <div class="footer">
+            <p class="quote">⚡ "Code is like humor. When you have to explain it, it's bad." - Cory House</p>
+            <p>© 2025 Baliddawa Allan. All rights reserved.</p>
+        </div>
     </div>
-
-    <!-- Profile Section -->
-    <section id="about">
-      <div class="profile-section">
-        <div class="profile-image">
-          <img src="./images/code.jpeg" alt="Baliddawa Allan" onerror="this.style.display='none'; this.parentElement.querySelector('.profile-image-text').style.display='flex'">
-          <div class="profile-image-text" style="display: none;">BA</div>
-        </div>
-        <h1>Baliddawa Allan</h1>
-        <p class="tagline">Full-Stack Software Engineer</p>
-        <p class="location">Kampala, Uganda | Open to Remote & Relocation</p>
-      </div>
-
-      <!-- Bio Card -->
-      <div class="bio">
-        <p>Full-Stack Developer specializing in <strong>Java/Spring Boot</strong> and <strong>React/Next.js</strong>. I build production-ready apps that solve real problems, like streamlining student management for schools. Fun fact: I'm a coffee-fueled coder who once built a social app in a weekend hackathon! ☕🚀</p>
-        
-        <!-- Download CV -->
-        <a href="./files/Baliddawa_Allan_CV.pdf" download style="display:inline-block; background: var(--secondary-gradient); color:#fff; padding:12px 20px; border-radius:25px; text-decoration:none; font-weight:600; margin-bottom:15px;">Download CV</a>
-
-        <!-- Skills -->
-        <div class="skills">
-          <span class="skill-tag">Java & Spring Boot</span>
-          <span class="skill-tag">React & Next.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">PostgreSQL</span>
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">MongoDB</span>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="tech-stack">
-          <div class="tech-item"><span>Java & Spring Boot</span>
-            <div class="tech-bar"><div class="tech-fill" style="--fill-width:90%; width:90%;"></div></div>
-          </div>
-          <div class="tech-item"><span>React & Next.js</span>
-            <div class="tech-bar"><div class="tech-fill" style="--fill-width:85%; width:85%;"></div></div>
-          </div>
-          <div class="tech-item"><span>Node.js</span>
-            <div class="tech-bar"><div class="tech-fill" style="--fill-width:80%; width:80%;"></div></div>
-          </div>
-          <div class="tech-item"><span>PostgreSQL</span>
-            <div class="tech-bar"><div class="tech-fill" style="--fill-width:75%; width:75%;"></div></div>
-          </div>
-          <div class="tech-item"><span>Docker</span>
-            <div class="tech-bar"><div class="tech-fill" style="--fill-width:70%; width:70%;"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Currently Working On -->
-      <div class="bio">
-        <h2 style="color:white; margin-bottom:12px;">Currently Working On</h2>
-        <p>Developing a <strong>Next.js SaaS platform</strong> for local businesses integrating payment and analytics, along with enhancements to my Student Management System project.</p>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-      <div class="section-header">
-        <h2>Education</h2>
-      </div>
-      
-      <div class="education-card">
-        <div class="education-header">
-          <div class="education-degree">Associate's Degree in Computer Science</div>
-          <div class="education-date">Expected Graduation: January 2026</div>
-        </div>
-        <div class="education-institution">University of the People</div>
-        <p>Currently completing my degree with a focus on software engineering principles, algorithms, and data structures.</p>
-      </div>
-    </section>
-
-    <!-- Experience & Testimonials Section -->
-    <section id="experience" class="experience-section">
-      <div class="section-header">
-        <h2>Experience & Testimonials</h2>
-      </div>
-      
-      <div class="education-card">
-        <p>"Allan's work on our website was transformative—fast, secure, and user-friendly." - Mr. Ntambi Moses</p>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-      <div class="section-header">
-        <h2>Projects</h2>
-      </div>
-      
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-        <button class="filter-btn" data-filter="frontend">Frontend</button>
-        <button class="filter-btn" data-filter="backend">Backend</button>
-        <button class="filter-btn" data-filter="opensource">Open Source</button>
-      </div>
-      
-      <div class="projects-grid">
-        <!-- Allanova Social App -->
-        <div class="project-card" data-category="fullstack">
-          <div class="project-image">
-            <img src="./images/allanova-screenshot.jpeg" alt="Allanova Social App" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">💬</div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Allanova Social App</h3>
-            <p class="project-description">A modern full-stack social media app enabling real-time chats and secure user authentication. Solved scalability issues for 1,000+ users by implementing Socket.io. Built from ideation to deployment in 3 months, resulting in a responsive platform deployed on Vercel.</p>
-            <div class="project-tech">
-              <span class="tech-badge">React</span>
-              <span class="tech-badge">Node.js</span>
-              <span class="tech-badge">MongoDB</span>
-              <span class="tech-badge">Socket.io</span>
-              <span class="tech-badge">JWT</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Allanella/allanova-social-app" class="project-link" target="_blank">GitHub</a>
-              <a href="https://allanova-demo.vercel.app" class="project-link" target="_blank">Live Demo</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Iona Institute of Technology Website -->
-        <div class="project-card" data-category="frontend">
-          <div class="project-image">
-            <img src="./images/ionaShot.PNG" alt="Iona Institute" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">🎓</div>
-          </div>
-          <div class{"project-content"}>
-            <h3 class="project-title">Iona Institute of Technology</h3>
-            <p class="project-description">Official website built with React, Vite, and Tailwind CSS featuring modern UI and smooth scrolling navigation. Addressed the need for an engaging educational platform, improving user navigation and load times by 40% through optimized components.</p>
-            <div class="project-tech">
-              <span class="tech-badge">React</span>
-              <span class="tech-badge">Vite</span>
-              <span class="tech-badge">Tailwind CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Allanella/iona-tech-website" class="project-link" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Student Management System -->
-        <div class="project-card" data-category="fullstack">
-          <div class="project-image">
-            <img src="./images/edup.PNG" alt="Student Management System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">📚</div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Student Management System</h3>
-            <p class="project-description">Full-stack application for managing student information with secure authentication and CRUD operations. Tackled administrative inefficiencies in educational institutions, reducing data entry time by 50% via automated processes and database optimizations.</p>
-            <div class="project-tech">
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Spring Boot</span>
-              <span class="tech-badge">React</span>
-              <span class="tech-badge">MySQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Acculate Construction Website -->
-        <div class="project-card" data-category="frontend">
-          <div class="project-image">
-            <img src="./images/image.png" alt="Acculate Construction" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">🏗️</div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Acculate Construction Company</h3>
-            <p class="project-description">Professional website for a construction company built with Next.js and modern UI components. Focused on showcasing projects effectively, leading to increased client inquiries through intuitive galleries and contact forms.</p>
-            <div class="project-tech">
-              <span class="tech-badge">Next.js</span>
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">Tailwind CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- OpenELIS Global Contribution -->
-        <div class="project-card" data-category="opensource">
-          <div class="project-image">
-            <img src="./images/openelis-screenshot.png" alt="OpenELIS Global" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">🔬</div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">OpenELIS Global</h3>
-            <p class="project-description">Open-source laboratory information system. Contributed to development and improvements, enhancing data accuracy and workflow efficiency for healthcare labs worldwide.</p>
-            <div class="project-tech">
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Open Source</span>
-              <span class="tech-badge">Laboratory Systems</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/OpenELIS/OpenELIS-Global-2" class="project-link" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- SDA Kanyanya Website -->
-        <div class="project-card" data-category="frontend">
-          <div class="project-image">
-            <img src="./images/KnnShot.PNG" alt="SDA Kanyanya" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="project-image-placeholder">⛪</div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">SDA Kanyanya Website</h3>
-            <p class="project-description">Church website with worship schedules, ministries, sermons, events, and community resources. Improved community engagement by integrating event calendars and media uploads, boosting visitor interaction.</p>
-            <div class="project-tech">
-              <span class="tech-badge">Next.js</span>
-              <span class="tech-badge">Tailwind CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Allanella" class="project-link" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="section-header">
-        <h2>Get In Touch</h2>
-      </div>
-      
-      <!-- Links & Contact -->
-      <div class="links-section">
-        <div class="link-card" onclick="window.open('https://github.com/Allanella','_blank')">
-          <div class="link-content">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577 0-.285-.012-1.234-.018-2.236-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.304.762-1.604-2.665-.303-5.466-1.332-5.466-5.932 0-1.31.469-2.382 1.236-3.222-.124-.303-.536-1.523.118-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.02.005 2.046.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.912 1.236 3.222 0 4.61-2.803 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.594-.014 2.879-.014 3.27 0 .32.19.694.8.576C20.565 21.796 24 17.3 24 12c0-6.628-5.372-12-12-12z"/></svg>
-            <div class="link-text">
-              <span class="link-title">GitHub Portfolio</span>
-              <span class="link-description">Explore my code and projects</span>
-            </div>
-          </div>
-          <span class="arrow">→</span>
-        </div>
-
-        <div class="link-card" onclick="window.open('https://www.linkedin.com/in/allan-baliddawa-828771286/','_blank')">
-          <div class="link-content">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M22.23 0H1.77C.792 0 0 .77 0 1.72v20.56C0 23.23.792 24 1.77 24h20.46C23.208 24 24 23.23 24 22.28V1.72C24 .77 23.208 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.52C4.12 7.52 3.15 6.54 3.15 5.32c0-1.22.97-2.2 2.19-2.2 1.21 0 2.19.98 2.19 2.2 0 1.22-.98 2.2-2.19 2.2zM20.45 20.45h-3.56v-5.56c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.93v5.67H9.38V9h3.42v1.56h.05c.48-.91 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.49v6.78z"/></svg>
-            <div class="link-text">
-              <span class="link-title">LinkedIn Profile</span>
-              <span class="link-description">Let's connect professionally</span>
-            </div>
-          </div>
-          <span class="arrow">→</span>
-        </div>
-
-        <div class="link-card" onclick="window.location.href='mailto:allanbaliddawa@gmail.com'">
-          <div class="link-content">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 13.065l-10-6.065v12h20v-12l-10 6.065zm0-2.13l10-6.935h-20l10 6.935z"/></svg>
-            <div class="link-text">
-              <span class="link-title">Email Me</span>
-              <span class="link-description">allanbaliddawa@gmail.com</span>
-            </div>
-          </div>
-          <span class="arrow">→</span>
-        </div>
-      </div>
-
-      <!-- Social Links -->
-      <div class="social-links">
-        <a href="https://github.com/Allanella" class="social-link" target="_blank" rel="noopener" title="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577 0-.285-.012-1.234-.018-2.236-3.338.725-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.304.762-1.604-2.665-.303-5.466-1.332-5.466-5.932 0-1.31.469-2.382 1.236-3.222-.124-.303-.536-1.523.118-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.02.005 2.046.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.912 1.236 3.222 0 4.61-2.803 5.625-5.475 5.921.43.37.823 1.096.823 2.21 0 1.594-.014 2.879-.014 3.27 0 .32.19.694.8.576C20.565 21.796 24 17.3 24 12c0-6.628-5.372-12-12-12z"/></svg>
-        </a>
-        <a href="mailto:allanbaliddawa@gmail.com" class="social-link" title="Email">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 13.065l-10-6.065v12h20v-12l-10 6.065zm0-2.13l10-6.935h-20l10 6.935z"/></svg>
-        </a>
-        <a href="https://my-portfolio-flame-tau-63.vercel.app/" class="social-link" target="_blank" title="Portfolio">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.18 5 4.05 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        </a>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p class="quote">⚡ "Code is like humor. When you have to explain it, it's bad." - Cory House</p>
-      <p>© 2025 Baliddawa Allan. All rights reserved.</p>
-    </div>
-  </div>
-
-  <script>
-    // Project Filtering
-    const filters = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project-card');
-    
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filters.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        projects.forEach(proj => {
-          proj.style.display = (filter === 'all' || proj.dataset.category === filter) ? 'block' : 'none';
+    <script>
+        // Project Filtering
+        const filters = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-card');
+        filters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filters.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                projects.forEach(proj => {
+                    proj.style.display = (filter === 'all' || proj.dataset.category === filter) ? 'block' : 'none';
+                });
+            });
         });
-      });
-    });
-
-    // Smooth Scrolling for Nav Links
-    document.querySelectorAll('.nav-link').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
+        // Smooth Scrolling for Nav Links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
