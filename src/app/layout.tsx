@@ -1,40 +1,56 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Navigation } from '@/components/navigation'
-import { BackgroundShapes } from '@/components/background-shapes'
-import { Metadata } from 'next'
+import './globals.css';
+import { DM_Sans } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://allanova-portfolio.vercel.app'), 
   title: 'Baliddawa Allan | Full-Stack Developer',
-  description: 'Full-Stack Software Engineer — Java/Spring Boot, React/Next.js. Based in Kampala, Uganda.',
-}
+  description:
+    'Full-Stack Software Engineer — Java/Spring Boot, React/Next.js. Based in Kampala, Uganda.',
+  keywords: ['Full-Stack Developer', 'React', 'Next.js', 'Java', 'Spring Boot', 'Kampala', 'Uganda'],
+  authors: [{ name: 'Baliddawa Allan' }],
+  openGraph: {
+    title: 'Baliddawa Allan | Full-Stack Developer',
+    description:
+      'Full-Stack Software Engineer — Java/Spring Boot, React/Next.js. Based in Kampala, Uganda.',
+    type: 'website',
+  },
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false} // Force dark to prevent 'funny' flashing
-        >
-          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
-            <BackgroundShapes />
-            <Navigation />
-            <main className="flex-grow">
-              {children}
-            </main>
+    <html lang="en" suppressHydrationWarning className={dmSans.variable}>
+      <body
+        style={{
+          fontFamily: 'var(--font-dm-sans), ui-sans-serif, sans-serif',
+          background: '#080c14',
+          color: '#f1f5f9',
+          minHeight: '100svh',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale',
+          overflowX: 'hidden',
+        }}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <div
+            style={{
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100svh',
+            }}
+          >
+            <main style={{ flex: '1 1 0%' }}>{children}</main>
           </div>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

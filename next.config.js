@@ -1,18 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Keep unoptimized: true if you are on the Vercel free tier and want to save on usage
-    unoptimized: true,
+    unoptimized: true, // Recommended for Vercel Free tier
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
-    formats: ['image/webp', 'image/avif'],
   },
-  // REMOVED: output: 'export' and distDir: 'out'
-  // These were causing the "routes-manifest.json not found" error
+  // Remove the 'output: export' logic entirely to allow standard Vercel deployment
 };
 
 module.exports = nextConfig;
