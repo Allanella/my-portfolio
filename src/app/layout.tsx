@@ -8,10 +8,9 @@ import { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  // Replace with your actual Vercel deployment URL
   metadataBase: new URL('https://allanova-portfolio.vercel.app'), 
   title: 'Baliddawa Allan | Full-Stack Developer & Freelancer',
-  description: 'Full-Stack Software Engineer & Freelancer specializing in Java, Spring Boot, React, and Next.js.',
+  description: 'Full-Stack Software Engineer — Java/Spring Boot, React/Next.js. Based in Kampala, Uganda.',
   openGraph: {
     title: 'Baliddawa Allan | Full-Stack Developer',
     description: 'Portfolio of Baliddawa Allan, Software Engineer and Computer Science Graduate.',
