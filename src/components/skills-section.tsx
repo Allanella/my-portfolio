@@ -1,54 +1,69 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
 
 const skills = [
-  'Java', 'Spring Boot', 'React', 'Next.js', 'Node.js', 'TypeScript',
-  'PostgreSQL', 'MySQL', 'MongoDB', 'Docker', 'Tailwind CSS', 'REST APIs',
-  'Sound Engineering', 'Master of Ceremonies'
-]
+  'Java',
+  'Spring Boot',
+  'React',
+  'Next.js',
+  'Node.js',
+  'TypeScript',
+  'PostgreSQL',
+  'MySQL',
+  'MongoDB',
+  'Docker',
+  'Tailwind CSS',
+  'REST APIs',
+  'Sound Engineering',
+  'Master of Ceremonies',
+];
 
 const techStack = [
   { name: 'Java & Spring Boot', level: 90 },
   { name: 'React & Next.js', level: 85 },
   { name: 'Node.js & Express', level: 80 },
-  { name: 'Database Management', level: 75 },
-  { name: 'Docker & DevOps', level: 70 },
-]
+  { name: 'Database Management', level: 80 },
+  { name: 'Docker & DevOps', level: 75 },
+];
 
 export function SkillsSection() {
-  const techBarsRef = useRef<(HTMLDivElement | null)[]>([])
+  // Using an array ref or a single div ref depending on your intersection logic
+  const techBarsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const fills = entry.target.querySelectorAll('.tech-fill')
+            const fills = entry.target.querySelectorAll('.tech-fill') as NodeListOf<HTMLElement>;
             fills.forEach((fill) => {
-              const element = fill as HTMLElement
-              const width = element.style.width
-              element.style.width = '0'
+              const targetWidth = fill.getAttribute('data-level') + '%';
+              fill.style.width = '0%';
+              // Trigger reflow for animation
+              fill.offsetHeight; 
               setTimeout(() => {
-                element.style.width = width
-              }, 100)
-            })
+                fill.style.width = targetWidth;
+              }, 100);
+            });
           }
-        })
+        });
       },
       { threshold: 0.1 }
-    )
+    );
 
-    techBarsRef.current.forEach((bar) => {
-      if (bar) observer.observe(bar)
-    })
+    // Observe the container of the tech bars
+    const currentRef = techBarsRef.current[0];
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
     return () => {
-      techBarsRef.current.forEach((bar) => {
-        if (bar) observer.unobserve(bar)
-      })
-    }
-  }, [])
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
   return (
     <section id="skills" className="py-20">
@@ -68,7 +83,7 @@ export function SkillsSection() {
               key={skill}
               className="skill-tag bg-white/5 backdrop-blur-md border border-white/10 text-text-primary py-3 px-4 rounded-2xl text-sm font-semibold text-center transition-all duration-300 cursor-pointer hover:translate-y-[-4px] hover:scale-105 hover:border-accent hover:shadow-lg hover:shadow-accent/30 hover:text-white"
               style={{
-                animationDelay: `${index * 0.1}s`
+                animationDelay: `${index * 0.1}s`,
               }}
             >
               {skill}
@@ -76,8 +91,14 @@ export function SkillsSection() {
           ))}
         </div>
 
-        <div className="tech-stack max-w-3xl mx-auto" ref={(el) => techBarsRef.current[0] = el}>
-          {techStack.map((tech, index) => (
+        <div
+          className="tech-stack max-w-3xl mx-auto"
+          // Fix: Wrap assignment in braces to ensure the function returns void
+          ref={(el) => {
+            techBarsRef.current[0] = el;
+          }}
+        >
+          {techStack.map((tech) => (
             <div key={tech.name} className="mb-6">
               <div className="flex justify-between mb-2 text-sm font-semibold text-text-secondary">
                 <span>{tech.name}</span>
@@ -85,8 +106,10 @@ export function SkillsSection() {
               </div>
               <div className="tech-bar h-2.5 bg-background-card rounded-full overflow-hidden border border-border">
                 <div
-                  className="tech-fill h-full bg-gradient-accent rounded-full transition-all duration-1500 ease-out relative"
+                  className="tech-fill h-full bg-gradient-accent rounded-full transition-all duration-1000 ease-out relative"
                   style={{ width: `${tech.level}%` }}
+                  // Store the level in a data attribute for the IntersectionObserver to read
+                  data-level={tech.level}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
                 </div>
@@ -96,5 +119,5 @@ export function SkillsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

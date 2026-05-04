@@ -117,30 +117,6 @@ export function HeroSection() {
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
               </div>
-
-              {/* Floating Particles */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div
-                  className="particle absolute w-1 h-1 bg-accent rounded-full animate-pulse"
-                  style={{ top: '20%', left: '10%', animationDelay: '0s' }}
-                ></div>
-                <div
-                  className="particle absolute w-1 h-1 bg-accent/50 rounded-full animate-pulse"
-                  style={{ top: '30%', left: '80%', animationDelay: '0.5s' }}
-                ></div>
-                <div
-                  className="particle absolute w-1 h-1 bg-accent/30 rounded-full animate-pulse"
-                  style={{ top: '60%', left: '20%', animationDelay: '1s' }}
-                ></div>
-                <div
-                  className="particle absolute w-1 h-1 bg-accent/40 rounded-full animate-pulse"
-                  style={{ top: '80%', left: '70%', animationDelay: '1.5s' }}
-                ></div>
-                <div
-                  className="particle absolute w-1 h-1 bg-accent/20 rounded-full animate-pulse"
-                  style={{ top: '15%', left: '60%', animationDelay: '2s' }}
-                ></div>
-              </div>
             </div>
           </div>
         </div>
