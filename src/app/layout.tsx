@@ -8,15 +8,13 @@ import { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  // FIX: Setting metadataBase resolves the Vercel warning and helps with OG image paths
+  // Replace with your actual Vercel deployment URL
   metadataBase: new URL('https://allanova-portfolio.vercel.app'), 
   title: 'Baliddawa Allan | Full-Stack Developer & Freelancer',
-  description: 'Baliddawa Allan - Full-Stack Software Engineer & Freelancer. Java/Spring Boot, React/Next.js. Media skills: Sound Engineering, Master of Ceremonies (MC). Based in Kampala, Uganda.',
-  keywords: 'Full-Stack Developer, Java, Spring Boot, React, Next.js, Sound Engineering, MC, Freelancer, Uganda',
-  authors: [{ name: 'Baliddawa Allan' }],
+  description: 'Full-Stack Software Engineer & Freelancer specializing in Java, Spring Boot, React, and Next.js.',
   openGraph: {
-    title: 'Baliddawa Allan | Full-Stack Developer & Freelancer',
-    description: 'Full-Stack Software Engineer & Freelancer — Java/Spring Boot, React/Next.js. Also skilled in sound engineering and hosting (MC).',
+    title: 'Baliddawa Allan | Full-Stack Developer',
+    description: 'Portfolio of Baliddawa Allan, Software Engineer and Computer Science Graduate.',
     images: ['/images/allan.jpg'],
     type: 'website',
   },
