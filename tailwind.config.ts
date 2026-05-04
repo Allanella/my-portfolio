@@ -10,24 +10,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // We use CSS variables to ensure the theme-provider works correctly
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: '#667eea',
           light: '#764ba2',
+          foreground: "hsl(var(--primary-foreground))",
         },
         accent: {
           DEFAULT: '#38bdf8',
           secondary: '#f5576c',
+          foreground: "hsl(var(--accent-foreground))",
         },
-        background: {
-          DEFAULT: '#020617',
-          card: 'rgba(30, 30, 50, 0.4)',
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
         text: {
           primary: '#ffffff',
           secondary: '#cbd5e1',
           muted: '#94a3b8',
         },
-        border: '#1e293b',
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',

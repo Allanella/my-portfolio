@@ -1,5 +1,3 @@
-// Build Trigger: 2026-05-04-v1
-// layout page
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -28,16 +26,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <BackgroundShapes />
-          <Navigation />
-          {children}
+          <div className="relative flex min-h-screen flex-col">
+            <BackgroundShapes />
+            <Navigation />
+            {/* Added overflow-x-hidden to prevent 'funny' horizontal scrolling */}
+            <main className="flex-1 overflow-x-hidden">
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
