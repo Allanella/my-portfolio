@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true, // Recommended for Vercel Free tier
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,7 +9,6 @@ const nextConfig = {
       },
     ],
   },
-  // Remove the 'output: export' logic entirely to allow standard Vercel deployment
 };
 
 module.exports = nextConfig;
