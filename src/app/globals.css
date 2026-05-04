@@ -29,6 +29,32 @@
   --shadow-glow: 0 0 40px rgba(56, 189, 248, 0.3);
 }
 
+/* Dark theme variables */
+[data-theme='dark'] {
+  --background: #020617;
+  --foreground: #ffffff;
+  --card: rgba(30, 30, 50, 0.4);
+  --card-foreground: #ffffff;
+  --border: #1e293b;
+  --primary: #667eea;
+  --primary-foreground: #ffffff;
+  --accent: #38bdf8;
+  --accent-foreground: #ffffff;
+}
+
+/* Light theme variables */
+[data-theme='light'] {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: #0f172a;
+  --border: #e2e8f0;
+  --primary: #667eea;
+  --primary-foreground: #ffffff;
+  --accent: #38bdf8;
+  --accent-foreground: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,8 +67,8 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   line-height: 1.7;
   overflow-x: hidden;
   position: relative;
@@ -384,7 +410,7 @@ body::before {
 
 /* Profile Image */
 .profile-image-inner {
-  @apply relative w-full pt-[100%] rounded-3xl overflow-hidden shadow-2xl border-4 border-accent animate-pulse-border animate-float backdrop-blur-sm transition-all duration-300;
+  @apply relative w-full pt-[100%] rounded-3xl overflow-hidden shadow-2xl border-4 border-accent animate-pulse-border backdrop-blur-sm transition-all duration-300;
 }
 
 .profile-image-inner:hover {

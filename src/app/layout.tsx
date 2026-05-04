@@ -9,14 +9,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://allanova-portfolio.vercel.app'), 
-  title: 'Baliddawa Allan | Full-Stack Developer & Freelancer',
+  title: 'Baliddawa Allan | Full-Stack Developer',
   description: 'Full-Stack Software Engineer — Java/Spring Boot, React/Next.js. Based in Kampala, Uganda.',
-  openGraph: {
-    title: 'Baliddawa Allan | Full-Stack Developer',
-    description: 'Portfolio of Baliddawa Allan, Software Engineer and Computer Science Graduate.',
-    images: ['/images/allan.jpg'],
-    type: 'website',
-  },
 }
 
 export default function RootLayout({
@@ -26,18 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-background text-foreground`}>
+      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+          enableSystem={false} // Force dark to prevent 'funny' flashing
         >
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
             <BackgroundShapes />
             <Navigation />
-            {/* Added overflow-x-hidden to prevent 'funny' horizontal scrolling */}
-            <main className="flex-1 overflow-x-hidden">
+            <main className="flex-grow">
               {children}
             </main>
           </div>

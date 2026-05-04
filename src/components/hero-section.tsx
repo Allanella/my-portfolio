@@ -11,8 +11,8 @@ export function HeroSection() {
     const handleMouseMove = (e: MouseEvent) => {
       const target = e.currentTarget as HTMLElement;
       const rect = target.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      const x = (e.clientX - rect.left - rect.width / 2) / 25; // Dampened movement
+      const y = (e.clientY - rect.top - rect.height / 2) / 25;
       setMousePosition({ x, y });
     };
 
@@ -29,96 +29,88 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="hero-content animate-slide-in-left">
-            <div className="flex items-center gap-2 text-accent text-lg font-semibold mb-3">
-              <span className="animate-wave">👋</span>
-              <span className="animate-typewriter">Hello, I'm Allan</span>
+    <section id="about" className="min-h-screen flex items-center py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Left Content */}
+          <div className="hero-content animate-fade-in">
+            <div className="flex items-center gap-2 text-accent text-lg font-semibold mb-4">
+              <span className="animate-bounce">👋</span>
+              <span>Hello, I'm Allan</span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-4 bg-gradient-hero bg-200% bg-clip-text text-transparent animate-gradient-move">
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6 bg-gradient-hero bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-move">
               Full-Stack Software Engineer
             </h1>
 
-            <p className="text-2xl text-text-secondary mb-3 font-medium">
+            <p className="text-2xl text-slate-300 mb-4 font-medium">
               Building Modern Web Solutions & Digital Experiences
             </p>
 
-            <div className="flex items-center gap-3 flex-wrap mb-6">
-              <div className="flex items-center gap-2 text-text-muted">
-                <MapPin size={16} />
+            <div className="flex items-center gap-3 flex-wrap mb-8">
+              <div className="flex items-center gap-2 text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full text-sm">
+                <MapPin size={14} />
                 <span>Kampala, Uganda</span>
               </div>
-              <span className="badge">
+              <div className="flex items-center gap-2 text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full text-sm">
                 <Briefcase size={14} />
-                Freelancer
-              </span>
-              <span className="badge">
+                <span>Freelancer</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full text-sm">
                 <Mic size={14} />
-                MC & Sound Engineer
-              </span>
+                <span>MC & Sound Engineer</span>
+              </div>
             </div>
 
-            <p className="text-text-secondary mb-8 text-lg">
-              I specialize in <strong>Java/Spring Boot</strong> and <strong>React/Next.js</strong>,
-              crafting scalable web applications and beautiful user interfaces. I also provide
-              professional sound engineering and MC services for events.
+            <p className="text-slate-400 mb-10 text-lg leading-relaxed max-w-xl">
+              I specialize in <strong className="text-white">Java/Spring Boot</strong> and <strong className="text-white">React/Next.js</strong>,
+              crafting scalable web applications. Based in Kampala, I combine technical expertise with professional event sound services.
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-bounce-in">
-              <a
-                href="./cv/Baliddawa_Allan_CV.pdf"
-                download
-                className="btn btn-primary flex items-center gap-2 animate-glow"
-              >
-                <Download size={18} />
-                Download CV
+            <div className="flex flex-wrap gap-4">
+              <a href="/cv/Baliddawa_Allan_CV.pdf" download className="px-8 py-3 bg-primary rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-primary/20">
+                <Download size={18} /> Download CV
               </a>
-              <a href="#projects" className="btn btn-outline flex items-center gap-2">
-                <Rocket size={18} />
-                View Projects
+              <a href="#projects" className="px-8 py-3 border border-slate-700 rounded-full font-bold hover:bg-slate-800 transition-colors flex items-center gap-2">
+                <Rocket size={18} /> Projects
               </a>
-              <a href="#contact" className="btn btn-gradient flex items-center gap-2">
-                <Mail size={18} />
-                Get In Touch
+              <a href="#contact" className="px-8 py-3 bg-gradient-to-r from-accent to-primary rounded-full font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
+                <Mail size={18} /> Contact
               </a>
             </div>
           </div>
 
-          <div className="hero-image-wrapper animate-slide-in-right relative">
-            <div className="profile-image relative w-full max-w-md mx-auto">
-              <div className="profile-image-inner relative w-full pt-[100%] rounded-3xl overflow-hidden shadow-2xl border-4 border-accent animate-pulse-border animate-float backdrop-blur-sm">
+          {/* Right Image */}
+          <div 
+            className="hero-image-wrapper relative"
+            style={{ 
+              transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
+              transition: 'transform 0.1s ease-out'
+            }}
+          >
+            <div className="relative w-full max-w-md mx-auto aspect-square">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10" />
+              <div className="w-full h-full rounded-3xl overflow-hidden border-2 border-slate-700 shadow-2xl relative">
                 <Image
                   src="/images/allan.jpg"
                   alt="Baliddawa Allan"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover"
                   priority
                 />
               </div>
-
-              {/* Floating Tech Icons */}
-              <div className="floating-icon icon-1 absolute top-[10%] -right-5">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
+              
+              {/* Floating Icons - Simplified for standard Tailwind */}
+              <div className="absolute -top-4 -right-4 p-4 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl animate-float">
+                <Rocket className="text-accent" size={24} />
               </div>
-              <div className="floating-icon icon-2 absolute bottom-[20%] -left-5">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
-              <div className="floating-icon icon-3 absolute top-[50%] -right-8">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
+              <div className="absolute -bottom-4 -left-4 p-4 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl animate-float [animation-delay:1s]">
+                <Briefcase className="text-primary" size={24} />
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
