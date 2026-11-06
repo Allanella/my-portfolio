@@ -10,4 +10,7 @@ Thumbs.db
 
 # Editor directories
 .vscode/
-.idea/.next
+.idea/
+
+# Next.js build output
+.next/
