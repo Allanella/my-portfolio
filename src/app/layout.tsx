@@ -1,4 +1,4 @@
-import './globals.css';
+import '@/app/globals.css';
 import { DM_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Metadata } from 'next';
@@ -27,12 +27,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={dmSans.variable}>
+      <head />
       <body
+        suppressHydrationWarning
         style={{
           fontFamily: 'var(--font-dm-sans), ui-sans-serif, sans-serif',
           background: '#080c14',
           color: '#f1f5f9',
-          minHeight: '100svh',
+          minHeight: '100vh',
           WebkitFontSmoothing: 'antialiased',
           MozOsxFontSmoothing: 'grayscale',
           overflowX: 'hidden',
@@ -44,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
-              minHeight: '100svh',
+              minHeight: '100vh',
             }}
           >
             <main style={{ flex: '1 1 0%' }}>{children}</main>
