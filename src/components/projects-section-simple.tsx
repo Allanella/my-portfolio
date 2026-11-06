@@ -48,84 +48,84 @@ const projects: Project[] = [
     id: 2,
     title: 'Mount Rwenzori Golf Resort & Spa',
     description:
-      'Luxurious hospitality web platform featuring immersive visual galleries, booking inquiries, and high-performance frontend architecture.',
+      'Website for a mountain resort in Fort Portal, presenting its 9-hole golf course, spa, accommodation and amenities, with room rates and an online booking flow.',
     image: '/images/mt. Rwenzori golf resort and spar.png',
     tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
     github: 'https://github.com/Allanella',
     demo: 'https://www.mtrwenzorigolfresortspa.com/',
-    impact: 'Premium resort digital experience',
+    impact: 'Online booking & room enquiries',
     category: 'web',
   },
   {
     id: 3,
     title: 'MachineMan Uganda',
     description:
-      'Industrial equipment and commercial machinery supplier platform showcasing catalog listings, technical specs, and client inquiries.',
+      'Catalogue website for a Kampala machinery and hardware dealer, with generators, tillers, pumps and tools by category, a photo gallery, site search and quote requests.',
     image: '/images/machineman.png',
     tech: ['React', 'Next.js', 'Tailwind CSS'],
     github: 'https://github.com/Allanella',
     demo: 'https://machinemanuganda.com',
-    impact: 'Expanded commercial equipment reach',
+    impact: 'Quote requests & WhatsApp enquiries online',
     category: 'web',
   },
   {
     id: 4,
-    title: 'Permaculture Hub',
+    title: 'Permaculture Hub Northern Uganda',
     description:
-      'Sustainable agriculture and eco-living information platform promoting regenerative land management and community education.',
+      'Website for a youth-led organisation promoting climate-smart farming and green entrepreneurship, with programmes, impact figures, partnership enquiries and donation details.',
     image: '/images/permaculture.png',
     tech: ['React', 'Tailwind CSS', 'Vercel'],
     github: 'https://github.com/Allanella',
     demo: 'https://permaculture-hub.vercel.app/',
-    impact: 'Eco-education & community outreach',
+    impact: 'Online donations & partnership enquiries',
     category: 'web',
   },
   {
     id: 5,
-    title: 'St. Elizabeth Nkoowe',
+    title: 'St. Elizabeth Nkoowe (SENK)',
     description:
-      'Comprehensive institutional website for educational and medical support, providing updates, admissions info, and community resources.',
+      'Official website for a Catholic day and boarding secondary school, covering O- and A-Level academics, admissions, facilities, student life, news and a photo gallery.',
     image: '/images/StElizabeth.png',
     tech: ['React', 'Next.js', 'Tailwind CSS'],
     github: 'https://github.com/Allanella',
     demo: 'https://stelizabethnkoowe.com/',
-    impact: 'Streamlined institutional communications',
+    impact: 'Admissions, news & gallery in one place',
     category: 'web',
   },
   {
     id: 6,
-    title: 'Soothing Wellness Platform',
+    title: 'Soothing Interiors',
     description:
-      'Calming wellness and mental health support web application offering guided relaxation sessions, resources, and user dashboards.',
+      'Elegant portfolio website for a Kampala luxury interior design studio, showcasing its story, team, services, featured projects and design process, with an enquiry form.',
     image: '/images/soothing.png',
     tech: ['React', 'Tailwind CSS', 'Next.js'],
     github: 'https://github.com/Allanella',
     demo: 'https://soothing-eight.vercel.app',
-    impact: 'Enhanced digital wellness accessibility',
-    category: 'app',
+    impact: 'Portfolio & enquiries for a design studio',
+    category: 'web',
   },
   {
     id: 7,
-    title: 'Kaloli Digital Platform',
+    title: 'St. Kalooli Lwanga SS Mulajje',
     description:
-      'Modern web application tailored for local enterprise productivity, rapid digital publishing, and user engagement.',
+      'School website for a Catholic-founded secondary school in Luweero, with academics, leadership, gallery, downloads, donations and a dedicated online admissions application.',
     image: '/images/kaloli.png',
     tech: ['React', 'Tailwind CSS', 'Vercel'],
     github: 'https://github.com/Allanella',
     demo: 'https://kaloli.vercel.app/',
-    impact: 'Optimized digital workflow',
+    impact: 'Online admissions for the 2026 intake',
     category: 'web',
   },
   {
     id: 8,
-    title: 'Solace Web Experience',
+    title: 'Solace Dentalcare',
     description:
-      'Sleek, responsive digital experience focused on minimalist UI design, performance optimization, and smooth animations.',
+      'Clean, reassuring website for a family dental clinic in Kampala, presenting services, the dental team, FAQs, patient reviews and an online appointment request form.',
     image: '/images/solace.png',
     tech: ['React', 'Next.js', 'Tailwind CSS'],
     github: 'https://github.com/Allanella',
     demo: 'https://solace-eta-one.vercel.app/',
-    impact: 'High-performance interactive design',
+    impact: 'Online appointment requests & WhatsApp booking',
     category: 'web',
   },
   {
@@ -373,7 +373,7 @@ export function ProjectsSectionSimple() {
           <span className="pj-eyebrow">Portfolio</span>
           <h2 className="pj-heading">Featured Projects</h2>
           <p className="pj-sub">
-            Real products for real clients, from resort websites to hospital-grade lab systems.
+            Real websites and systems for real clients, from resorts, schools and clinics to lab management software.
           </p>
           <p className="pj-count">
             {projects.length} projects · <strong>{liveCount} live sites</strong> you can open right now
